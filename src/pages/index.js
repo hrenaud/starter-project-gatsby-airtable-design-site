@@ -17,7 +17,7 @@ const HomePage = ({ data }) => {
   } = data
   return (
     <Layout>
-      <Hero />
+      <Hero projects={projects} />
       <About />
       <Projects projects={projects} title="latest projects" />
       <Slider title="Reviews" />
