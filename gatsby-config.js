@@ -46,7 +46,12 @@ module.exports = {
         tables: [
           {
             baseId: process.env.AIRTABLE_BASE,
-            tableName: process.env.AIRTABLE_TABLE_NAME,
+            tableName: process.env.AIRTABLE_TABLE_NAME_PROJECTS,
+            mapping: { image: `fileNode` }, // optional, e.g. "text/markdown", "fileNode"
+          },
+          {
+            baseId: process.env.AIRTABLE_BASE,
+            tableName: process.env.AIRTABLE_TABLE_NAME_CUSTOMERS,
             mapping: { image: `fileNode` }, // optional, e.g. "text/markdown", "fileNode"
           },
         ],

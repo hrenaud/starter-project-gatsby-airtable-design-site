@@ -13,7 +13,6 @@ const Projects = ({ projects: data, title, page }) => {
       <div className="section-center">
         {/* Search button here */}
         {projects.map(item => {
-          console.log(item)
           const { id } = item
           const { name, type, text } = item.data
           const fluid = item.data.image.localFiles[0].childImageSharp.fluid
@@ -23,6 +22,7 @@ const Projects = ({ projects: data, title, page }) => {
                 <Image fluid={fluid} className="img" />
                 <div className="info">
                   <p>- {type} -</p>
+                  <p>{id}</p>
                   <h3>{name}</h3>
                 </div>
               </div>
