@@ -22,7 +22,6 @@ const Projects = ({ projects: data, title, page }) => {
                 <Image fluid={fluid} className="img" />
                 <div className="info">
                   <p>- {type} -</p>
-                  <p>{id}</p>
                   <h3>{name}</h3>
                 </div>
               </div>
