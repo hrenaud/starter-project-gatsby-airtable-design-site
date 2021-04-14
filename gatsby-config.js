@@ -41,20 +41,30 @@ module.exports = {
     {
       resolve: `gatsby-source-airtable`,
       options: {
-        apiKey: process.env.GATSBY_AIRTABLE_API_KEY, // may instead specify via env, see below
-        concurrency: 5, // default, see using markdown and attachments for more information
+        apiKey: process.env.GATSBY_AIRTABLE_API_KEY,
+        concurrency: 5,
         tables: [
           {
             baseId: process.env.GATSBY_AIRTABLE_BASE,
-            tableName: process.env.GATSBY_AIRTABLE_TABLE_NAME_PROJECTS,
-            mapping: { image: `fileNode` }, // optional, e.g. "text/markdown", "fileNode"
+            tableName: `Projects`,
+            mapping: { image: `fileNode` },
           },
           {
             baseId: process.env.GATSBY_AIRTABLE_BASE,
-            tableName: process.env.GATSBY_AIRTABLE_TABLE_NAME_CUSTOMERS,
-            mapping: { image: `fileNode` }, // optional, e.g. "text/markdown", "fileNode"
+            tableName: `Customers`,
+            mapping: { image: `fileNode` },
           },
         ],
+      },
+    },
+    {
+      resolve: `gatsby-plugin-algolia`,
+      options: {
+        appId: process.env.GATSBY_ALGOLIA_APP_ID,
+        apiKey: process.env.GATSBY_ALGOLIA_ADMIN_KEY,
+        indexName: process.env.GATSBY_ALGOLIA_INDEX_NAME,
+        queries: require("./src/constants/algolia"),
+        chunkSize: 10000,
       },
     },
   ],
